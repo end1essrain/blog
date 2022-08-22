@@ -9,7 +9,7 @@
     
     <title>
         
-            Archive |
+            宝塔部署Alist教程 |
         
         Baby&#39;sfish
     </title>
@@ -152,38 +152,112 @@
 
                 
                     <div class="fade-in-down-animation">
-    <div class="archive-container ">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation">宝塔部署Alist教程</span>
+        </div>
+
         
-<div class="archive-list-container">
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="/images/avatar.png">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">Babyfish&#39;s Blog</span>
+                        
+                            <span class="author-label">Lv1</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;
+        <span class="pc">2022-08-23 08:00:00</span>
+        <span class="mobile">2022-08-23 08:00</span>
+    </span>
     
-        <section class="archive-item">
-            <div class="archive-item-header">
-                <span class="archive-year">2022</span>
-                <span class="archive-year-post-count">[2]</span>
-            </div>
-            <ul class="article-list">
-                
-                    <li class="article-item">
-                        <a class="article-title"
-                           href="/2022/08/23/bt-alist/"
-                        >宝塔部署Alist教程</a>
-                        <span class="article-date">08-23</span>
-                    </li>
-                
-                    <li class="article-item">
-                        <a class="article-title"
-                           href="/2022/08/22/babyfish-s-blog/"
-                        >babyfish&#39;s blog</a>
-                        <span class="article-date">08-22</span>
-                    </li>
-                
-            </ul>
-        </section>
+    
+
+    
+    
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fas fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
     
 </div>
 
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <p>应广大宝塔用户的需求，“宝塔部署Alist教程”来了。</p>
+<h1 id="安装Alist"><a href="#安装Alist" class="headerlink" title="安装Alist"></a>安装Alist</h1><p>直接使用一键脚本就可以，先打开宝塔，然后点击左侧的终端，进入ssh终端，可能会让你输入密码，相信你应该知道自己的密码，然后复制下面的代码粘贴回车运行</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -fsSL &quot;https://nn.ci/alist.sh&quot; | bash -s install</span><br></pre></td></tr></table></figure>
+<p>当看到提示关于YOUR_IP:5244消息之后就成功了，注意这里也会输出初始的密码，记得记录下来。</p>
+<h1 id="宝塔操作"><a href="#宝塔操作" class="headerlink" title="宝塔操作"></a>宝塔操作</h1><p>点击宝塔左侧的网站，新建一个网站相信你已经很熟悉这个操作了，类型选择静态&#x2F;PHP就可以了。填入你的域名，新建网站完成。</p>
+<p>建议先申请一个ssl证书开启https，因为此程序的部分功能需要https支持。</p>
+<p>点击设置-配置文件。将默认文件的以下内容删除：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">#禁止访问的文件或目录</span><br><span class="line">location ~ ^/(\.user.ini|\.htaccess|\.git|\.svn|\.project|LICENSE|README.md)</span><br><span class="line">&#123;</span><br><span class="line">    return 404;</span><br><span class="line">&#125;</span><br><span class="line">location ~ .*\.(gif|jpg|jpeg|png|bmp|swf)$</span><br><span class="line">&#123;</span><br><span class="line">    expires      30d;</span><br><span class="line">    error_log /dev/null;</span><br><span class="line">    access_log /dev/null;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">location ~ .*\.(js|css)?$</span><br><span class="line">&#123;</span><br><span class="line">    expires      12h;</span><br><span class="line">    error_log /dev/null;</span><br><span class="line">    access_log /dev/null; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>然后在你删除的任意地方加入：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">location / &#123;</span><br><span class="line">    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;</span><br><span class="line">    proxy_set_header Host $http_host;</span><br><span class="line">    proxy_set_header X-Real-IP $remote_addr;</span><br><span class="line">    proxy_set_header Range $http_range;</span><br><span class="line">	proxy_set_header If-Range $http_if_range;</span><br><span class="line">    proxy_redirect off;</span><br><span class="line">    proxy_pass http://127.0.0.1:5244;</span><br><span class="line">    # 上传的最大文件尺寸</span><br><span class="line">    client_max_body_size 20000m;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>保存即可。</p>
+<p>完成！打开你新建网站时填入的域名就可以打开了。</p>
+
+        </div>
+
+        
+            <div class="post-copyright-info">
+                <div class="article-copyright-info-container">
+    <ul>
+        <li>Post title：宝塔部署Alist教程</li>
+        <li>Post author：Babyfish&#39;s Blog</li>
+        <li>Create time：2022-08-23 08:00:00</li>
+        <li>
+            Post link：https://3210t.cn/2022/08/23/bt-alist/
+        </li>
+        <li>
+            Copyright Notice：All articles in this blog are licensed under <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> unless stating additionally.
+        </li>
+    </ul>
+</div>
+
+            </div>
+        
+
+        
+
+        
+            <div class="article-nav">
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/2022/08/22/babyfish-s-blog/"
+                        >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">babyfish&#39;s blog</span>
+                                <span class="post-nav-item">Next posts</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+        
     </div>
 </div>
+
 
                 
             </div>
@@ -227,6 +301,23 @@
         </div>
     </div>
 
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="tools-item page-aside-toggle">
+                <i class="fas fa-outdent"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
     
 
     <div class="right-bottom-side-tools">
@@ -273,6 +364,14 @@
 
     </div>
 
+    
+        <aside class="page-aside">
+            <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%89%E8%A3%85Alist"><span class="nav-number">1.</span> <span class="nav-text">安装Alist</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%9D%E5%A1%94%E6%93%8D%E4%BD%9C"><span class="nav-number">2.</span> <span class="nav-text">宝塔操作</span></a></li></ol>
+    </div>
+</div>
+        </aside>
     
 
     <div class="image-viewer-container">
@@ -342,6 +441,14 @@
 
 
 <div class="post-scripts pjax">
+    
+        
+<script src="/js/left-side-toggle.js"></script>
+
+<script src="/js/libs/anime.min.js"></script>
+
+<script src="/js/toc.js"></script>
+
     
 </div>
 
