@@ -19,7 +19,6 @@
 <b>点击俺的名片</b>，查看自己的
 <b>ID</b> ，然后在下方输入<b>ID</b> ， 
 <b>点击获取</b>，获取成功后点击提交即可。 </div>
-        </div>
 		<div class="form-inline uid mb-3 clearfix">
 			<div class="form-floating col-8">
 			  <input class="form-control" id="uid" placeholder="输入ID获取token" oninput="value=value.replace(/[^\d]/g,'')">
