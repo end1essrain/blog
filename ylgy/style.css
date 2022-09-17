@@ -1,0 +1,17 @@
+*{padding:0;margin:0}
+body{background-color:#75c473}
+body>.container{width:800px;background:url(https://img.4rz.cn/2022/09/ddfbf58e0d70d.jpg) no-repeat top;background-size:100%}
+.box{background-color:#fff;border-radius:2rem 2rem 0 0;height:calc(100% - 15rem);top:15rem;position:relative;padding:2rem 2rem 0;box-shadow:0 .4rem 1rem .1rem rgb(0 0 0 / 20%)}
+.box .form-control{border-radius:1rem}
+.box .form-control:focus{border-color:#75c473;box-shadow:0 0 0 .1rem #75c473}
+.box .alert-success{border-radius:1rem}
+.box button{border-radius:1rem;height:calc(3.5rem + 2px);line-height:1.25;background-color:#75c473;color:#fff;border-color:#75c473}
+.box #jiaocheng .btn svg{margin-top:-2px}
+.box #jiaocheng .btn3{margin-top:1rem}
+.box #jiaocheng .btn3 a{display:inline-flex;font-size:.8rem;background-color:#75c473;color:#fff;border-radius:.25rem;margin-bottom:.2rem;padding:.5rem .5rem}
+@media screen and (max-width:800px){body>.container{width:100%}
+}
+@media screen and (max-width:500px){.box{height:calc(100% - 8rem);top:8rem}
+@media screen and (max-width:400px){.box{height:calc(100% - 5rem);top:5rem}
+@media screen and (max-width:370px){.box{height:calc(100% - 2rem);top:2rem}
+}
