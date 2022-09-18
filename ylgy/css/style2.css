@@ -28,8 +28,5 @@ body>.container{width:800px;background:url(../img/750_512_feedback_a61b4662d89b4
 @media screen and (max-width:400px){.box{top:10rem}
 }
 
-.box #jiaocheng .btn6 svg{margin-top:2px}
-.box #jiaocheng .btn svg{margin-top:-2px}
-.box #jiaocheng .btn3{margin-top:1rem}
-.box #jiaocheng .btn3 a{display:inline-flex;font-size:.8rem;background-color:#75c473;color:#fff;border-radius:.25rem;margin-bottom:.2rem;padding:.5rem .5rem}
 .box #jiaocheng .btn5 a{display:inline-flex;font-size:.9rem;background-color:#000000;color:#fff;border-radius:.25rem;margin-bottom:.2rem;padding:.5rem .5rem}
+.box #jiaocheng .btn6 svg{margin-top:2px}
